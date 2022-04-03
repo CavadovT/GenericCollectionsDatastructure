@@ -15,10 +15,11 @@ namespace BookLibraryPruduct.Helper
          */
         public static void CapacityLimitException(int capacity, int count) 
         {
-            if (capacity >= count) 
+            if (capacity < count) 
             {
                 throw new Exception("capacity was less than the current size. (Parameter 'value')");
             }
         }
+
     }
 }
