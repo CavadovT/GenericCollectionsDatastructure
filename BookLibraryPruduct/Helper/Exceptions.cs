@@ -20,6 +20,16 @@ namespace BookLibraryPruduct.Helper
                 throw new Exception("capacity was less than the current size. (Parameter 'value')");
             }
         }
-
+        public static void NotFoundException() 
+        {
+            throw new Exception("NotFoundThisBook");
+        }
+        public static void ProductCountIsZeroException(int count) 
+        {
+            if (count == 0)
+            {
+                throw new Exception("This book is not int the base");
+            }
+        }
     }
 }
