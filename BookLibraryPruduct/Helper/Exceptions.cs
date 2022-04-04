@@ -22,13 +22,15 @@ namespace BookLibraryPruduct.Helper
         }
         public static void NotFoundException() 
         {
-            throw new Exception("NotFoundThisBook");
+            Console.WriteLine( new Exception("Notfound"));
+
         }
         public static void ProductCountIsZeroException(int count) 
         {
             if (count == 0)
             {
-                throw new Exception("This book is not int the base");
+                Console.WriteLine( new Exception("This book is not int the base"));
+                return;
             }
         }
     }

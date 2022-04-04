@@ -31,34 +31,77 @@ namespace BookLibraryPruduct.Models
         public int Count { get; set; }
         
         List<Book> books = new List<Book>();
-        public Library(int bookLimit)
+        public Library(int bookLimit):base()
         {
             BookLimit = bookLimit;
            
         }
         public void AddBook(Book book) 
         {
-        if (Count==BookLimit)
-        }
-        public void GetBookByID(int? id) 
-        {  
-            if (id != null) 
+            books.Add(book);
+            Count++;
+            if (Count == BookLimit) 
             {
-                foreach (var item in books)
-                {
-                    if (item.ID == id)
-                    {
-                        item.Info();
-                     
-                        return;
-                    }
-                    
-                }
+                Helper.Exceptions.CapacityLimitException(BookLimit, Count);
+                return;
             }
            
-          
         }
+        public void GetBookByID(int? id) 
+        {
+          
+            bool exist = false;
+            foreach (Book item in books)
+            {
+                if (id == item.ID)
+                {
+                    Console.WriteLine(item);
+                    exist = true;
+                    return;
+                }
+            }
+            if (exist == false &&((id is null)==false))
+               Helper.Exceptions.NotFoundException();
+            if (id is null)
+            {
+              
+                throw new NullReferenceException("Id Is null!!");
+            }
 
-       
+
+
+        }
+        public void RemoveByID(int? id)
+        {
+            
+            int k=0;
+            bool notExist = false;
+            for (int i = 0; i < books.Count ; i++)
+            {
+                
+                if (id == books[i].ID)
+                {
+                    books[i].Count=0;
+                    Console.WriteLine($"with {id} Id deleted in library");
+                    notExist = true;
+                    k = i;
+                }
+            }
+             if (notExist = true)
+            {
+                books[k].ShowInfo();
+            }
+            else if (notExist == false && !(id is null))
+            {
+                Helper.Exceptions.NotFoundException();
+            }
+            else if (id is null)
+            {
+                throw new NullReferenceException("Id is null");
+            }
+           
+           
+        
+        }
     }
 }

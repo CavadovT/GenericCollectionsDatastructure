@@ -24,12 +24,13 @@ ps: name, price, authorName, pageCount dəyərləri olmadan book obyekti yaratma
 
         public string AuthorName { get; set; }
         public int PageCount { get; set; }
-        public Book(string name,string authorName,int price,int pageCount)
+        public Book(string name,string authorName,double price,int pageCount)
         {
             Name = name;
             AuthorName = authorName;
             Price = price;
             PageCount = pageCount;
+            
 
         }
         public override void Sell()
@@ -42,15 +43,15 @@ ps: name, price, authorName, pageCount dəyərləri olmadan book obyekti yaratma
         public override void ShowInfo()
         {
            
-            Console.Write($"\nProduct Id:{ID}\n Book Name: {Name}\n Aouthor Name: {AuthorName}\n" +
-                $"Page Count: {PageCount}\nPrice: {Price}\nCount in base: {Count}" +
+            Console.Write($"\nProduct Id:{ID}\nBook Name: {Name}\nAouthor Name: {AuthorName}\n" +
+                $"Page Count: {PageCount}\nPrice: {Price}\nCount in base: {Count}\n" +
                 $"TotalInCome: {TotalInCome}\n");
             Console.WriteLine("+++++++++++++++++++++++++");
         }
         public override string ToString()
         {
             return $"\nProduct Id:{ID}\n Book Name: {Name}\n Aouthor Name: {AuthorName}\n" +
-                $"Page Count: {PageCount}\nPrice: {Price}\nCount in base: {Count}" +
+                $"Page Count: {PageCount}\nPrice: {Price}\nCount in base: {Count}\n" +
                 $"Total In Come : {TotalInCome}\n" + "++++++++++++++++";
         }
     }
