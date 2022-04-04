@@ -36,15 +36,24 @@ namespace BookLibraryPruduct.Models
             BookLimit = bookLimit;
            
         }
-        public void AddBook(Book book) 
+        public void AddBook(Book book)
         {
-            books.Add(book);
-            Count++;
-            if (Count == BookLimit) 
+           
+            int counttotal=book.Count;
+
+            foreach (Book item in books)
             {
-                Helper.Exceptions.CapacityLimitException(BookLimit, Count);
+                counttotal=counttotal+item.Count;
+
+            }
+            if (counttotal >= BookLimit) 
+            {
+                Helper.Exceptions.CapacityLimitException(BookLimit, counttotal);
                 return;
             }
+
+            books.Add(book);
+            Console.WriteLine("Book added to Library");
            
         }
         public void GetBookByID(int? id) 

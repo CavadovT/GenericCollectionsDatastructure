@@ -51,8 +51,8 @@ namespace BookLibraryPruduct
             Book book3 = new Book("Ali riyaziyyat1", "Reshid Memmedov", 18, 500) { Count = 10 };
             book3.ShowInfo();
 
-            book1.Sell();
-            book1.ShowInfo();
+          //  book1.Sell();
+           // book1.ShowInfo();
             List<Book> books = new List<Book>();
             //books.Add(book1);
             //books.Add(book2);
@@ -60,11 +60,11 @@ namespace BookLibraryPruduct
             library.AddBook(book1);
             library.AddBook(book2);
             library.AddBook(book3);
-            library.RemoveByID(3);
+           // library.RemoveByID(3);
 
             //library.GetBookByID(3);
-            library.GetBookByID(3);
-            book3.Sell();
+           // library.GetBookByID(3);
+           // book3.Sell();
 
             
 

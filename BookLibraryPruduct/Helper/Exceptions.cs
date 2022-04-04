@@ -17,7 +17,7 @@ namespace BookLibraryPruduct.Helper
         {
             if (capacity < count) 
             {
-                throw new Exception("capacity was less than the current size. (Parameter 'value')");
+                Console.WriteLine(new Exception("capacity was less than the current size. (Parameter 'value')"));
             }
         }
         public static void NotFoundException() 
